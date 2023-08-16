@@ -1,0 +1,30 @@
+{
+    "name": "cache-driver/multi-tenant",
+    "description": "Configure multiple driver in config file without accessing server.",
+    "type": "project",
+    "require-dev": {
+        "laravel/laravel": "9",
+        "phpunit/phpunit": "^10.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CacheDriver\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel" : {
+            "providers": [
+                "CacheDriver\\Providers\\CacheServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "RafficMohammed",
+            "email": "mohammed.raffic@ladybirdweb.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
