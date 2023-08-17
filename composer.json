@@ -1,5 +1,5 @@
 {
-    "name": "cache-driver/multi-tenant",
+    "name": "laravel-cache/multi-drivers",
     "description": "Configure multiple driver in config file without accessing server.",
     "type": "project",
     "require-dev": {
