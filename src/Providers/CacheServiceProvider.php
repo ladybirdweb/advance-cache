@@ -8,6 +8,6 @@ class CacheServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/' . 'config.php', 'adCache');
+        $this->publishes([__DIR__.'/../../config/cache.php' => config_path('cache.php')], 'advance-cache');
     }
 }

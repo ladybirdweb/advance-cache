@@ -6,35 +6,28 @@ use App\Http\Controllers\Controller;
 
 class HandleCacheController extends Controller
 {
-    public $collectionCache;
+    public static $configFile;
 
-    public function __construct($driver = 'file')
+    public function __construct()
     {
-        $this->collectionCache = [];
-        $this->collectionCache['driver'] = $driver;
+        $this::$configFile = parse_ini_file(__DIR__.'/constant.ini');
     }
 
-    public function setConnection($connection)
+    public function modify(array $options)
     {
-        $this->collectionCache['connection'] = $connection;
+        $config = '';
+        foreach (array_merge($options, self::$configFile) as $key => $option) {
+            $config .= "$key=$option\n";
+        }
+        file_put_contents(__DIR__.'/constant.ini', $config);
     }
 
-    public function setSerialize($serialize)
+    public static function value($constant, $default = null)
     {
-        $this->collectionCache['serialize'] = $serialize;
-    }
+        $value = array_key_exists($constant, self::$configFile);
 
-    public function setLockConnection($connection)
-    {
-        $this->collectionCache['lock_connection'] = $connection;
-    }
+        throw_if(!$value && !$default, "Undefined constant $constant");
 
-    public function modify()
-    {
-
-    }
-    public function __destruct()
-    {
-        $this->collectionCache = [];
+        return $value ? self::$configFile[$constant] : $default;
     }
 }
