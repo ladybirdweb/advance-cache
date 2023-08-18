@@ -1,5 +1,4 @@
 vendor/*
-tests/*
 phpunit.xml
 .phpunit.result.cache
 .phpunit.cache/*
