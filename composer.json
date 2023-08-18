@@ -1,5 +1,5 @@
 {
-    "name": "ladybird/laravel-cache",
+    "name": "faveo-helpdesk/laravel-cache",
     "description": "Configure multiple Laravel cache drivers without accessing the server. It will update the config accordingly",
     "require": {
         "php" : "^8.1"
