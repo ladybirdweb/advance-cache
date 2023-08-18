@@ -1,7 +1,6 @@
 {
     "name": "faveo-cache/multi-drivers",
     "description": "Configure multiple driver in config file without accessing server.",
-    "type": "project",
     "require": {
         "laravel/laravel": "^9"
     },
